@@ -1,4 +1,5 @@
 import "package:flutter/material.dart";
+import "package:chinmay_expenses_app/features/dashboard/presentation/providers/dashboard_provider.dart";
 
 class BottomNavigationWidget extends StatefulWidget {
   const BottomNavigationWidget({ super.key });
@@ -11,7 +12,7 @@ class BottomNavigationState extends State<BottomNavigationWidget> {
   int currentIndex = 0;
 
   static const List<Widget> options = <Widget>[
-    Text("Dashboard"),
+    CurrentMonthTotalExpenses(),
     Text("About")
   ];
 

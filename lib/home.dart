@@ -14,9 +14,6 @@ class HomePage extends StatelessWidget {
                          (hour >= 18 && hour < 22) ? "Good Evening, Chinmay!" :
                          "Good Night, Chinmay!";
 
-    double deviceWidth = MediaQuery.of(context).size.width;
-    double deviceheight = MediaQuery.of(context).size.height;
-
     return Padding(
         padding: const EdgeInsets.fromLTRB(20.0, 0.0, 20.0, 10.0),
         child: Column(
