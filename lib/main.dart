@@ -1,5 +1,5 @@
 import "package:flutter/material.dart";
-import "package:chinmay_expenses_app/common/molecules/bottom_navigation.dart";
+import "package:chinmay_expenses_app/common/widgets/molecules/bottom_navigation.dart";
 import "home.dart";
 import "about.dart";
 
