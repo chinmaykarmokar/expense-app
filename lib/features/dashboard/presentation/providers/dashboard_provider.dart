@@ -6,6 +6,9 @@ import "package:chinmay_expenses_app/features/dashboard/bloc/total_expenses_bloc
 import "package:chinmay_expenses_app/features/dashboard/bloc/total_expenses_bloc/total_expenses_state.dart";
 import "package:chinmay_expenses_app/features/dashboard/bloc/total_expenses_bloc/total_expenses_event.dart";
 
+// Import feature widgets
+import "package:chinmay_expenses_app/features/dashboard/presentation/ui/dashboard_ui.dart";
+
 class CurrentMonthTotalExpenses extends StatelessWidget {
   const CurrentMonthTotalExpenses({super.key});
 
@@ -22,7 +25,11 @@ class CurrentMonthTotalExpenses extends StatelessWidget {
             print(state.expenses);
             print(state.expenses.expenses);
             var expensesMap = state.expenses.expenses["expenses"];
-            return Center(child: Text("Expenses: $expensesMap"));
+            print(expensesMap.runtimeType);
+            return Scaffold(
+              body: Dashboard(totalExpense: expensesMap),
+            );
+            // return Center(child: Text("Expenses: $expensesMap"));
           }
           else if (state is TotalExpensesError) {
             return Center( child: Text("Expenses error: $state"));
