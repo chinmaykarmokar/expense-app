@@ -6,6 +6,7 @@ import "package:chinmay_expenses_app/common/widgets/atoms/text_widget.dart";
 import "package:chinmay_expenses_app/common/widgets/atoms/icon_widget.dart";
 import "package:chinmay_expenses_app/common/widgets/atoms/sized_box_widget.dart";
 import "package:chinmay_expenses_app/common/widgets/molecules/card_widget.dart";
+import "package:chinmay_expenses_app/common/widgets/molecules/gesture_detector_widget.dart";
 
 class Dashboard extends StatelessWidget {
   final int totalExpense;
@@ -59,6 +60,11 @@ class Dashboard extends StatelessWidget {
                                   fontSize: 32.0,
                                   fontWeight: FontWeight.bold,
                                   textColor: 0xFFFFFFFF,
+                                ),
+                                const GestureDetectorWidget(
+                                    text: "Full month expenditure",
+                                    fontSize: 12.0,
+                                    textColor: 0xFFFFFFFF,
                                 )
                               ],
                             ),
