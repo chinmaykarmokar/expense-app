@@ -1,8 +1,8 @@
-class CurrentMonthTotalExpenses {
+class DailyExpenses {
   final Map? expenses;
   final Object? error;
 
-  CurrentMonthTotalExpenses({
+  DailyExpenses({
     this.expenses,
     this.error
   });
