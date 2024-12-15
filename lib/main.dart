@@ -1,10 +1,14 @@
 import "package:flutter/material.dart";
-import "package:chinmay_expenses_app/common/widgets/molecules/bottom_navigation.dart";
-import "home.dart";
-import "about.dart";
+
+// Import router
+import "package:chinmay_expenses_app/config/routes/routes.dart";
+
+// Import application.dart
+import "package:chinmay_expenses_app/application.dart";
 
 void main() => runApp(
-  const MaterialApp(
-    home: BottomNavigationWidget()
+  MaterialApp.router(
+    routerConfig: router
+    // home: ApplicationWidget()
   )
 );
