@@ -3,7 +3,7 @@ import "package:dio/dio.dart";
 // Import model
 import "package:chinmay_expenses_app/features/entry/models/add_expenses_model.dart";
 
-class CurrentMonthTotalExpensesRepository {
+class AddExpensesRepository {
   var dio = Dio();
 
   Future<AddExpenses> addExpenses({ required String date, required Map expenses }) async {

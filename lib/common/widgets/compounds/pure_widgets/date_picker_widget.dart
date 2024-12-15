@@ -1,55 +1,36 @@
 import "package:flutter/material.dart";
 
-class DatePickerWidget extends StatefulWidget {
+class DatePickerWidget extends StatelessWidget {
   final Function textWidget;
+  final DateTime? selectedDate;
+  final Future<void> Function(BuildContext) selectDate;
   final Function formButtonWidget;
 
   const DatePickerWidget({
     required this.textWidget,
+    required this.selectedDate,
+    required this.selectDate,
     required this.formButtonWidget,
     super.key
   });
 
   @override
-  DatePickerWidgetState createState() => DatePickerWidgetState();
-}
-
-class DatePickerWidgetState extends State<DatePickerWidget> {
-  DateTime? selectedDate;
-
-  Future<void> selectDate(BuildContext context) async {
-    final DateTime? picked = await showDatePicker(
-      context: context,
-      initialDate: DateTime.now(), // Default date
-      firstDate: DateTime(2000), // Earliest date
-      lastDate: DateTime(2101), // Latest date
-    );
-    if (picked != null && picked != selectedDate) {
-      setState(() {
-        selectedDate = picked;
-      });
-    }
-  }
-
-  List months = <String>["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
-
-  @override
   Widget build(BuildContext context) {
+    List months = <String>["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
+
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        widget.formButtonWidget(
-          onPressedFunction: (){
-            selectDate(context);
-          },
-          childWidget: widget.textWidget(
+        formButtonWidget(
+          onPressedFunction: () => selectDate(context),
+          childWidget: textWidget(
               text: "Select a date",
             textColor: 0xFFFFFFFF
           ),
           padding: EdgeInsets.fromLTRB(30.0, 15.0, 30.0, 15.0)
         ),
-        selectedDate != null ? widget.textWidget(
-          text: "${months[selectedDate!.month - 1]} ${selectedDate!.day} ${selectedDate!.year}",
+        selectedDate != null ? textWidget(
+          text: "${selectedDate?.day} ${months[selectedDate!.month - 1]} ${selectedDate?.year}",
         ) : Container()
       ],
     );

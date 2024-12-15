@@ -19,7 +19,6 @@ class MonthlyDailyExpensesBloc extends Bloc<MonthlyDailyExpensesEvent, MonthlyDa
 
       try {
         final totalExpenses = await currentMonthDailyExpensesRepository.currentMonthDailyExpenses();
-        print("Expenses ${totalExpenses}");
         emit(MonthlyDailyExpensesLoaded(expenses: totalExpenses));
       } catch (error) {
         emit(MonthlyDailyExpensesError(error: MonthlyDailyExpenses(error: error)));

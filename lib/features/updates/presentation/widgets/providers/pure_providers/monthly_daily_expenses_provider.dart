@@ -24,9 +24,8 @@ class MonthlyDailyExpensesProvider extends StatelessWidget {
             return const Center(child: CircularProgressIndicator());
           }
           else if (state is MonthlyDailyExpensesLoaded) {
-            var expenses = state.expenses.expenses;
-            print("Provider state: $expenses");
-            return monthlyDailyExpensesUi();
+            List? expenses = state.expenses.expenses;
+            return monthlyDailyExpensesUi(monthlyExpenses: expenses);
           }
           else if (state is MonthlyDailyExpensesError) {
             return Center( child: Text("Expenses error: $state"));

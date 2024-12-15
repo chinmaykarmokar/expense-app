@@ -1,5 +1,5 @@
 // Import model
-import "package:chinmay_expenses_app/features/dashboard/models/current_month_total_expenses_model.dart";
+import "package:chinmay_expenses_app/features/dashboard/models/total_expenses_model.dart";
 
 abstract class TotalExpensesState {}
 
@@ -8,11 +8,11 @@ class TotalExpensesInitial extends TotalExpensesState {}
 class TotalExpensesLoading extends TotalExpensesState {}
 
 class TotalExpensesLoaded extends TotalExpensesState {
-  final CurrentMonthTotalExpenses expenses;
+  final TotalExpenses expenses;
   TotalExpensesLoaded({required this.expenses});
 }
 
 class TotalExpensesError extends TotalExpensesState {
-  final CurrentMonthTotalExpenses error;
+  final TotalExpenses error;
   TotalExpensesError({required this.error});
 }

@@ -37,7 +37,6 @@ class DashboardUI extends StatelessWidget {
                       textWidget(
                           text: getDayGreeting(),
                           fontSize: 30.0,
-                          // fontWeight: FontWeight.w600,
                           textColor: 0xFF000000
                       ),
                       cardWidget(
