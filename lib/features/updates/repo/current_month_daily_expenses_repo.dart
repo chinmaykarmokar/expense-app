@@ -9,7 +9,6 @@ class CurrentMonthDailyExpensesRepository {
   Future<MonthlyDailyExpenses> currentMonthDailyExpenses() async {
     try {
       Response response = await dio.get("http://10.0.2.2:5000/api/expenses/getCurrentMonthDailyExpenses");
-      print("Response ${response.data}");
       return MonthlyDailyExpenses(expenses: response.data);
     }
     catch (error) {
