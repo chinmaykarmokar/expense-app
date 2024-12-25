@@ -7,12 +7,14 @@ import "package:chinmay_expenses_app/features/entry/presentation/bloc/entry_even
 
 class EntryUI extends StatefulWidget {
   final Function textWidget;
+  final Function sizedBoxWidget;
   final Function datePickerWidget;
   final Function formInputWidget;
   final Function formButtonWidget;
 
   const EntryUI({
     required this.textWidget,
+    required this.sizedBoxWidget,
     required this.datePickerWidget,
     required this.formInputWidget,
     required this.formButtonWidget,
@@ -29,9 +31,9 @@ class EntryUIState extends State<EntryUI> {
   Future<void> selectDate(BuildContext context) async {
     final DateTime? picked = await showDatePicker(
       context: context,
-      initialDate: DateTime.now(), // Default date
-      firstDate: DateTime(2000), // Earliest date
-      lastDate: DateTime(2101), // Latest date
+      initialDate: DateTime.now(),
+      firstDate: DateTime(2000),
+      lastDate: DateTime(2101),
     );
     if (picked != null && picked != selectedDate) {
       setState(() {
@@ -50,13 +52,15 @@ class EntryUIState extends State<EntryUI> {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          widget.textWidget(
-            text: "Expense date",
-            fontSize: 20.0
+          widget.sizedBoxWidget(
+            height: MediaQuery.of(context).size.height * 0.02,
           ),
           widget.datePickerWidget(
             selectedDate: selectedDate,
             selectDate: selectDate
+          ),
+          widget.sizedBoxWidget(
+            height: MediaQuery.of(context).size.height * 0.025,
           ),
           widget.formInputWidget(
             controller: expenseTypeController,
@@ -69,32 +73,41 @@ class EntryUIState extends State<EntryUI> {
               text: "Add expense category"
             )
           ),
+          widget.sizedBoxWidget(
+            height: MediaQuery.of(context).size.height * 0.02,
+          ),
           widget.formInputWidget(
             controller: expenseAmountController,
             keyboardType: TextInputType.number,
             letterSpacing: 1.0,
             fontSize: 14.0,
             maxInputLength: 7,
-            regexp: r'[0-9]',
+            regexp: r'[0-9.]',
             childWidget: widget.textWidget(
               text: "Add expense amount"
             )
+          ),
+          widget.sizedBoxWidget(
+            height: MediaQuery.of(context).size.height * 0.03,
           ),
           widget.formButtonWidget(
             onPressedFunction: (){
               BlocProvider.of<AddExpensesBloc>(context).add(AddExpense(
                 date: "${selectedDate?.year}-${selectedDate?.month}-${selectedDate?.day}",
                 expenses: {
-                  expenseTypeController.text: expenseAmountController.text
+                  expenseTypeController.text.toLowerCase(): double.tryParse(expenseAmountController.text)
                 }
               ));
             },
             childWidget: widget.textWidget(
               text: "+ Add Expense",
-              textColor: 0xFF000000
+              textColor: 0xFFFFFFFF,
+              fontSize: 16.0,
+              fontWeight: FontWeight.w500,
             ),
-            backgroundColor: 0xFFFFFFFF,
+            backgroundColor: 0xFF000000,
             borderWidth: 2.0,
+            buttonRadius: 10.0,
             padding: EdgeInsets.fromLTRB(20.0, 10.0, 20.0, 10.0)
           )
         ],

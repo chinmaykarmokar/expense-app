@@ -21,17 +21,26 @@ class DatePickerWidget extends StatelessWidget {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        formButtonWidget(
-          onPressedFunction: () => selectDate(context),
-          childWidget: textWidget(
-              text: "Select a date",
-            textColor: 0xFFFFFFFF
-          ),
-          padding: EdgeInsets.fromLTRB(30.0, 15.0, 30.0, 15.0)
-        ),
-        selectedDate != null ? textWidget(
-          text: "${selectedDate?.day} ${months[selectedDate!.month - 1]} ${selectedDate?.year}",
-        ) : Container()
+        Row(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: [
+            formButtonWidget(
+                onPressedFunction: () => selectDate(context),
+                childWidget: textWidget(
+                  text: "Select a date",
+                  textColor: 0xFFFFFFFF,
+                  fontWeight: FontWeight.w600
+                ),
+                buttonRadius: 10.0,
+                padding: EdgeInsets.fromLTRB(30.0, 12.0, 30.0, 12.0)
+            ),
+            selectedDate != null ? textWidget(
+              text: "${selectedDate?.day} ${months[selectedDate!.month - 1]} ${selectedDate?.year}",
+              fontSize: 18.0,
+              fontWeight: FontWeight.w500
+            ) : Container()
+          ],
+        )
       ],
     );
   }

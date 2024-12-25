@@ -20,7 +20,7 @@ class ListWidget extends StatelessWidget {
 
         return gestureDetectorWidget(
           onTapFunction: () {
-            context.go("/oneDayExpense");
+            context.go("/dailyExpenses/${listItem["date"]["value"]}");
           },
           childWidget: Card(
             child: Column(

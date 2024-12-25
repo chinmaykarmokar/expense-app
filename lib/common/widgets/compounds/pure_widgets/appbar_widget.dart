@@ -1,4 +1,5 @@
 import "package:flutter/material.dart";
+import "package:go_router/go_router.dart";
 
 class AppBarWidget extends StatelessWidget implements PreferredSizeWidget {
   final Widget titleWidget;
@@ -23,7 +24,7 @@ class AppBarWidget extends StatelessWidget implements PreferredSizeWidget {
           iconColor: 0xFF000000,
         ),
         onPressed: () {
-          Navigator.pop(context);
+          context.pop();
         },
       ),
       title: titleWidget,

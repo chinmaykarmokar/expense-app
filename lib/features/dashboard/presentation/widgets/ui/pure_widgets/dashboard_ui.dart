@@ -7,7 +7,7 @@ import "package:chinmay_expenses_app/features/dashboard/presentation/widgets/ui/
 import "package:chinmay_expenses_app/features/dashboard/presentation/widgets/utils/day_greeting.dart";
 
 class DashboardUI extends StatelessWidget {
-  final int totalExpense;
+  final dynamic totalExpense;
   final Function textWidget;
   final Function iconWidget;
   final Function sizedBoxWidget;
