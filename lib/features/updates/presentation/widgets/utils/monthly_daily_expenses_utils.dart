@@ -11,8 +11,6 @@ Map monthlyDailyExpensesUtils(List? monthlyExpenses) {
   List listItems = [];
 
   monthlyExpenses?.forEach((expense) {
-    print("Expense: $expense");
-
     var listItem = {
       "date": {
         "name": "Date",

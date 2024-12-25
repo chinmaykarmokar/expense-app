@@ -6,7 +6,7 @@ import "package:chinmay_expenses_app/features/updates/models/daily_expenses_mode
 class DailyExpensesRepository {
   var dio = Dio();
   
-  Future<DailyExpenses> dailyExpenses({ required String date }) async {
+  Future<DailyExpenses> dailyExpenses({ required String? date }) async {
     try {
       Response response = await dio.get("http://10.0.2.2:5000/api/expenses/getOneDayExpense", queryParameters: {
         "date": date

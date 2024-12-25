@@ -1,8 +1,5 @@
-import "package:chinmay_expenses_app/features/updates/presentation/screens/wrappers/monthly_daily_expenses_screen_wrapper.dart";
 import "package:flutter/material.dart";
-
-// Import wrappers
-import "package:chinmay_expenses_app/features/entry/presentation/screens/wrappers/entry_screen_wrapper.dart";
+import "package:go_router/go_router.dart";
 
 class DashboardOptionsUI extends StatelessWidget {
   final Function cardWidget;
@@ -42,9 +39,7 @@ class DashboardOptionsUI extends StatelessWidget {
                     margin: EdgeInsets.fromLTRB(0.0, 5.0, 5.0, 5.0),
                     childWidget: gestureDetectorWidget(
                       onTapFunction: () {
-                        Navigator.push(context, MaterialPageRoute(
-                            builder: (context) => entryScreenWrapper()
-                        ));
+                        context.go("/entry");
                       },
                       childWidget: Container(
                         padding: EdgeInsets.fromLTRB(10.0, 15.0, 10.0, 15.0),
@@ -71,9 +66,7 @@ class DashboardOptionsUI extends StatelessWidget {
                     margin: EdgeInsets.fromLTRB(0.0, 5.0, 5.0, 5.0),
                     childWidget: gestureDetectorWidget(
                       onTapFunction: () {
-                        Navigator.push(context, MaterialPageRoute(
-                          builder: (context) => monthlyDailyExpensesScreenWrapper()
-                        ));
+                        context.go("/monthlyDailyExpenses");
                       },
                       childWidget: Container(
                         padding: EdgeInsets.fromLTRB(10.0, 15.0, 10.0, 15.0),

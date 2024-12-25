@@ -11,7 +11,7 @@ import "package:chinmay_expenses_app/common/widgets/molecules/wrappers/gesture_d
 import "package:chinmay_expenses_app/features/dashboard/presentation/widgets/ui/pure_widgets/dashboard_ui.dart";
 
 Widget dashboardUIWrapper({
-  required int totalExpense
+  required dynamic totalExpense
 }) {
   Function textWidget = textWidgetWrapper;
   Function iconWidget = iconWidgetWrapper;
