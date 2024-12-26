@@ -17,8 +17,11 @@ class EntryScreen extends StatelessWidget {
     return Scaffold(
       appBar: appBarWidget(
         titleWidget: textWidget(
-          text: "Add expenses"
-        )
+          text: "Add expenses",
+          fontSize: 18.0,
+          fontWeight: FontWeight.w500
+        ),
+        backgroundColor: 0xFFF0F5F5
       ),
       body: entryProvider()
     );
