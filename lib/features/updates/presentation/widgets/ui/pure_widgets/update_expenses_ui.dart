@@ -13,6 +13,7 @@ class UpdateExpensesUi extends StatelessWidget {
   final String? type;
   final double? price;
   final Function textWidget;
+  final Function sizedBoxWidget;
   final Function formInputWidget;
   final Function formButtonWidget;
 
@@ -21,6 +22,7 @@ class UpdateExpensesUi extends StatelessWidget {
     required this.type,
     required this.price,
     required this.textWidget,
+    required this.sizedBoxWidget,
     required this.formInputWidget,
     required this.formButtonWidget,
     super.key
@@ -36,6 +38,9 @@ class UpdateExpensesUi extends StatelessWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
+          sizedBoxWidget(
+            height: MediaQuery.of(context).size.height * 0.03,
+          ),
           formInputWidget(
               controller: expenseTypeController,
               keyboardType: TextInputType.text,
@@ -46,6 +51,9 @@ class UpdateExpensesUi extends StatelessWidget {
               childWidget: textWidget(
                   text: "Update expense category"
               )
+          ),
+          sizedBoxWidget(
+            height: MediaQuery.of(context).size.height * 0.02,
           ),
           formInputWidget(
               controller: priceController,
@@ -58,6 +66,9 @@ class UpdateExpensesUi extends StatelessWidget {
                   text: "Update price"
               )
           ),
+          sizedBoxWidget(
+            height: MediaQuery.of(context).size.height * 0.02,
+          ),
           formButtonWidget(
               onPressedFunction: (){
                 BlocProvider.of<UpdateExpensesBloc>(context).add(UpdateExpense(
@@ -67,11 +78,14 @@ class UpdateExpensesUi extends StatelessWidget {
                 ));
               },
               childWidget: textWidget(
-                  text: "Update Expense",
-                  textColor: 0xFF000000
+                text: "Update Expense",
+                textColor: 0xFFFFFFFF,
+                fontSize: 16.0,
+                fontWeight: FontWeight.w500,
               ),
-              backgroundColor: 0xFFFFFFFF,
+              backgroundColor: 0xFF000000,
               borderWidth: 2.0,
+              buttonRadius: 10.0,
               padding: EdgeInsets.fromLTRB(20.0, 10.0, 20.0, 10.0)
           )
         ],
