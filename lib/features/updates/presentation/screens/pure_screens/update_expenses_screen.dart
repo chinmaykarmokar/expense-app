@@ -23,8 +23,11 @@ class UpdateExpensesScreen extends StatelessWidget {
     return Scaffold(
       appBar: appBarWidget(
         titleWidget: textWidget(
-          text: "Update expenses for $date"
-        )
+          text: "Update expenses for $date",
+          fontSize: 18.0,
+          fontWeight: FontWeight.w500
+        ),
+        backgroundColor: 0xFFF0F5F5
       ),
       body: updateExpenses(
         date: date,

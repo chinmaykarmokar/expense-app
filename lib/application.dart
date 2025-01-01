@@ -45,8 +45,8 @@ class ApplicationState extends State<ApplicationWidget> {
           ],
           type: BottomNavigationBarType.fixed,
           currentIndex: currentIndex,
-          selectedItemColor: const Color(0xFF000099),
-          unselectedItemColor: const Color(0xFF8C8C8C),
+          selectedItemColor: const Color(0xFF000000),
+          unselectedItemColor: const Color(0xFFD9D9D9),
           iconSize: 35,
           onTap: handleNavigationClick,
           elevation: 5

@@ -17,8 +17,11 @@ class MonthlyDailyExpensesScreen extends StatelessWidget {
     return Scaffold(
       appBar: appBarWidget(
         titleWidget: textWidget(
-          text: "Expenses this month"
-        )
+          text: "Expenses this month",
+          fontSize: 18.0,
+          fontWeight: FontWeight.w500
+        ),
+        backgroundColor: 0xFFF0F5F5
       ),
       body: SafeArea(
         child: monthlyDailyExpensesUi()

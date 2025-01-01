@@ -18,7 +18,7 @@ Map monthlyDailyExpensesUtils(List? monthlyExpenses) {
       },
       "expense": {
         "name": "Expense",
-        "value": expense["totalexpense"]
+        "value": "₹${expense["totalexpense"]}"
       }
     };
 
