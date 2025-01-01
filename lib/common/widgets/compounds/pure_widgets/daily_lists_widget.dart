@@ -26,33 +26,43 @@ class DailyListsWidget extends StatelessWidget {
         String category = keys[index].toUpperCase();
         dynamic amount = values[index];
 
-        return Row(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          children: [
-            Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                textWidget(
-                  text: category
+        return Container(
+          padding: EdgeInsets.fromLTRB(15.0, 5.0, 15.0, 5.0),
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  textWidget(
+                      text: category
+                  ),
+                  textWidget(
+                    text: "₹${amount.toString()}",
+                    fontSize: 18.0,
+                    fontWeight: FontWeight.w500
+                  )
+                ],
+              ),
+              formButtonWidget(
+                onPressedFunction: () {
+                  context.go("/updateExpenses/$date/$category/$amount");
+                },
+                childWidget: textWidget(
+                  text: "Update",
+                  textColor: 0xFFFFFFFF,
                 ),
-                textWidget(
-                  text: "Amount: ₹${amount.toString()}"
-                )
-              ],
-            ),
-            formButtonWidget(
-              onPressedFunction: () {
-                context.go("/updateExpenses/$date/$category/$amount");
-              },
-              childWidget: textWidget(
-                text: "Update"
+                backgroundColor: 0xFF000000,
+                borderWidth: 2.0,
+                buttonRadius: 10.0,
+                padding: EdgeInsets.fromLTRB(20.0, 10.0, 20.0, 10.0)
               )
-            )
-          ],
+            ],
+          )
         );
       },
       separatorBuilder: (context, index) => Divider(
-        thickness: 0.3,
+        thickness: 0.5,
       ),
     );
   }

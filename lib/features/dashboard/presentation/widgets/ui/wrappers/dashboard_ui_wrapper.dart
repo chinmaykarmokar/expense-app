@@ -10,6 +10,9 @@ import "package:chinmay_expenses_app/common/widgets/molecules/wrappers/gesture_d
 // Import Dashboard UI
 import "package:chinmay_expenses_app/features/dashboard/presentation/widgets/ui/pure_widgets/dashboard_ui.dart";
 
+// Import wrappers
+import "package:chinmay_expenses_app/features/dashboard/presentation/widgets/ui/wrappers/dashboard_options_ui_wrapper.dart";
+
 Widget dashboardUIWrapper({
   required dynamic totalExpense
 }) {
@@ -18,6 +21,7 @@ Widget dashboardUIWrapper({
   Function sizedBoxWidget = sizedBoxWidgetWrapper;
   Function cardWidget =  cardWidgetWrapper;
   Function gestureDetectorWidget = gestureDetectorWidgetWrapper;
+  Function dashboardOptions = dashboardOptionUiWrapper;
 
   return DashboardUI(
     totalExpense: totalExpense,
@@ -25,6 +29,7 @@ Widget dashboardUIWrapper({
     iconWidget: iconWidget,
     sizedBoxWidget: sizedBoxWidget,
     cardWidget: cardWidget,
-    gestureDetectorWidget: gestureDetectorWidget
+    gestureDetectorWidget: gestureDetectorWidget,
+    dashboardOptions: dashboardOptions
   );
 }

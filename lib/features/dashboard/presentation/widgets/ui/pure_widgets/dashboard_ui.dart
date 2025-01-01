@@ -1,8 +1,5 @@
 import "package:flutter/material.dart";
 
-// Import wrappers
-import "package:chinmay_expenses_app/features/dashboard/presentation/widgets/ui/wrappers/dashboard_options_ui_wrapper.dart";
-
 // Import widget utils
 import "package:chinmay_expenses_app/features/dashboard/presentation/widgets/utils/day_greeting.dart";
 
@@ -13,6 +10,7 @@ class DashboardUI extends StatelessWidget {
   final Function sizedBoxWidget;
   final Function cardWidget;
   final Function gestureDetectorWidget;
+  final Function dashboardOptions;
 
   const DashboardUI({
     required this.totalExpense,
@@ -21,6 +19,7 @@ class DashboardUI extends StatelessWidget {
     required this.sizedBoxWidget,
     required this.cardWidget,
     required this.gestureDetectorWidget,
+    required this.dashboardOptions,
     super.key,
   });
 
@@ -71,15 +70,10 @@ class DashboardUI extends StatelessWidget {
                               ],
                             ),
                           ),
-                        backgroundColor: 0xFF3366CC,
+                        backgroundColor: 0xFF000000,
                         margin: EdgeInsets.fromLTRB(0.0, 20.0, 0.0, 0.0),
                       ),
-                      dashboardOptionUiWrapper(
-                        cardWidget: cardWidget,
-                        textWidget: textWidget,
-                        iconWidget: iconWidget,
-                        gestureDetectorWidget: gestureDetectorWidget
-                      )
+                      dashboardOptions()
                     ],
                   )
               )
